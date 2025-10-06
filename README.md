@@ -1,2 +1,2 @@
 # PIYUCESH
-A new Programming based on Python but even simpler than python
+A new Programming Language based on Python but even simpler than python
