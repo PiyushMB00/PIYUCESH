@@ -1,0 +1,32 @@
+show "PIYUCESH Calculator"
+ask "Enter first number: " in num1
+ask "Enter second number: " in num2
+
+show "Results:"
+num1 plus num2 in result
+show +num1
+show " + "
+show +num2
+show " = "
+show +result
+
+num1 minus num2 in result
+show +num1
+show " - "
+show +num2
+show " = "
+show +result
+
+num1 into num2 in result
+show +num1
+show " * "
+show +num2
+show " = "
+show +result
+
+num1 by num2 in result
+show +num1
+show " / "
+show +num2
+show " = "
+show +result

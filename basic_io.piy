@@ -1,0 +1,4 @@
+show "Hello World"
+ask "What is your name" in name
+show "Nice to meet you " + name
+show "Welcome to PIYUCESH!"

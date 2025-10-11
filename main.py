@@ -3,8 +3,8 @@ import sys
 def run_piyucesh_line(line, variables):
     line = line.strip()
 
-    if line.startswith("print "):
-        to_print = line[6:].strip()
+    if line.startswith("show "):
+        to_print = line[5:].strip()
         if to_print.startswith('"') and to_print.endswith('"'):
             print(to_print[1:-1])
         elif to_print.startswith('+'):
@@ -138,6 +138,71 @@ def run_piyucesh_line(line, variables):
                     variables[var_name] = int(result) if result.is_integer() else result
             except ValueError:
                 print(f"Error: Cannot perform division with '{left}' and '{right}'")
+
+    elif " equals " in line and " in " in line:
+        # Handle syntax: "5 equals 5 in result" or "num1 equals num2 in result"
+        parts = line.split(" in ")
+        operation_part = parts[0].strip()
+        var_name = parts[1].strip()
+        
+        # Split by "equals" to get operands
+        operands = operation_part.split(" equals ")
+        if len(operands) == 2:
+            left = operands[0].strip()
+            right = operands[1].strip()
+            
+            # Get values, handling both literals and variables
+            left_val = variables.get(left, left)
+            right_val = variables.get(right, right)
+            
+            # Try to compare as numbers first, then as strings
+            try:
+                left_num = float(left_val)
+                right_num = float(right_val)
+                variables[var_name] = "true" if left_num == right_num else "false"
+            except ValueError:
+                # Compare as strings
+                variables[var_name] = "true" if str(left_val) == str(right_val) else "false"
+
+    elif " greater " in line and " in " in line:
+        # Handle syntax: "10 greater 5 in result" or "num1 greater num2 in result"
+        parts = line.split(" in ")
+        operation_part = parts[0].strip()
+        var_name = parts[1].strip()
+        
+        # Split by "greater" to get operands
+        operands = operation_part.split(" greater ")
+        if len(operands) == 2:
+            left = operands[0].strip()
+            right = operands[1].strip()
+            
+            # Convert to numbers, handling both literals and variables
+            try:
+                left_val = float(variables.get(left, left))
+                right_val = float(variables.get(right, right))
+                variables[var_name] = "true" if left_val > right_val else "false"
+            except ValueError:
+                print(f"Error: Cannot compare '{left}' and '{right}' as numbers")
+
+    elif " less " in line and " in " in line:
+        # Handle syntax: "3 less 7 in result" or "num1 less num2 in result"
+        parts = line.split(" in ")
+        operation_part = parts[0].strip()
+        var_name = parts[1].strip()
+        
+        # Split by "less" to get operands
+        operands = operation_part.split(" less ")
+        if len(operands) == 2:
+            left = operands[0].strip()
+            right = operands[1].strip()
+            
+            # Convert to numbers, handling both literals and variables
+            try:
+                left_val = float(variables.get(left, left))
+                right_val = float(variables.get(right, right))
+                variables[var_name] = "true" if left_val < right_val else "false"
+            except ValueError:
+                print(f"Error: Cannot compare '{left}' and '{right}' as numbers")
 
 def run_piyucesh_file(filename):
     variables = {}

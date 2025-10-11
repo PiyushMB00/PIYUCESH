@@ -1,0 +1,26 @@
+show "PIYUCESH Comparison Operations Test"
+
+show "Testing equality:"
+5 equals 5 in result
+show "5 equals 5: " +result
+5 equals 3 in result
+show "5 equals 3: " +result
+
+show "Testing greater than:"
+10 greater 5 in result
+show "10 greater 5: " +result
+3 greater 7 in result
+show "3 greater 7: " +result
+
+show "Testing less than:"
+3 less 7 in result
+show "3 less 7: " +result
+8 less 2 in result
+show "8 less 2: " +result
+
+show "Testing with variables:"
+ask "Enter your age: " in age
+age greater 18 in adult
+show "You are over 18: " +adult
+age equals 18 in exactly
+show "You are exactly 18: " +exactly
