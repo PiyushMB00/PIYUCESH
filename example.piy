@@ -1,3 +1,25 @@
 print "Hello World" 
-ask "What is your name" into name
+ask "What is your name" in name
 print "Nice to meet you " + name
+
+
+print "Now Welcome to PIYUCESH Math Test"
+5 plus 4 in sum
+print "Addition of 5 plus 4 is: " +sum
+10 minus 4 in sum
+print "Subtraction of 10 minus 4 is: " +sum
+6 into 7 in sum
+print "Multiplication of 6 into 7 is: " +sum
+20 by 4 in sum
+print "Division of 20 by 4 is: " +sum
+ask "Enter first number: " in num1
+ask "Enter second number: " in num2
+num1 plus num2 in sum
+print "Addition is: " +sum
+num1 minus num2 in sum
+print "Subtraction is: " +sum
+num1 into num2 in sum
+print "Multiplication is: " +sum
+num1 by num2 in sum
+print "Division is: " +sum
+
